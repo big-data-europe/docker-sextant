@@ -6,8 +6,8 @@ ENV TOMCAT_MINOR_VERSION 7.0.55
 
 RUN apt-get update && \
     apt-get install -y \
-             default-jdk \
-	     wget && \
+    default-jdk \
+    wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
