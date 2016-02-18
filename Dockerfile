@@ -6,8 +6,10 @@ ENV TOMCAT_MINOR_VERSION 7.0.55
 
 RUN apt-get update && \
     apt-get install -y \
-    default-jdk \
-    wget && \
+             default-jdk \
+	         maven \
+    	     mercurial \
+	         wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -18,8 +20,12 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
     rm apache-tomcat-*.tar.gz && \
     mv apache-tomcat* tomcat
 
-RUN wget http://sextant.di.uoa.gr/data/Sextant_v2.0.war && \
-    mv Sextant_v2.0.war /tomcat/webapps/.
+RUN hg clone 'http://hg.strabon.di.uoa.gr/Sextant-New' && \
+    cd Sextant-New/JerseyServer&& \
+    mvn clean package
+
+RUN cp /Sextant-New/JerseyServer/target/*.war /tomcat/webapps/.  && \
+    rm -Rf /Sextant-New
 
 ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 ADD run.sh /run.sh
