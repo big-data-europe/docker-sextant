@@ -24,7 +24,7 @@ RUN hg clone 'http://hg.strabon.di.uoa.gr/Sextant-New' && \
     cd Sextant-New/JerseyServer&& \
     mvn clean package
 
-RUN cp /Sextant-New/JerseyServer/target/*.war /tomcat/webapps/.  && \
+RUN cp /Sextant-New/JerseyServer/target/*.war /tomcat/webapps/Sextant_v2.0.war  && \
     rm -Rf /Sextant-New
 
 ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
