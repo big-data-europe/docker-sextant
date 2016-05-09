@@ -7,10 +7,10 @@ ENV TOMCAT_MINOR_VERSION 7.0.55
 
 RUN apt-get update && \
     apt-get install -y \
-             default-jdk \
-	     maven \
-    	     mercurial \
-	     wget && \
+            	default-jdk \
+	    	maven \
+    	    	mercurial \
+	    	wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -32,5 +32,5 @@ ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 ADD sextant.sh /sextant.sh
 RUN chmod +x /*.sh
 
-EXPOSE ${PORT}
+EXPOSE $PORT
 CMD ["/bin/bash", "/sextant.sh"]
