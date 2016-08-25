@@ -21,7 +21,7 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
     rm apache-tomcat-*.tar.gz && \
     mv apache-tomcat* tomcat
 
-RUN hg clone 'http://hg.strabon.di.uoa.gr/Sextant-New' && \
+RUN hg clone http://hg.strabon.di.uoa.gr/Sextant-New -r testBD && \
     cd Sextant-New/JerseyServer&& \
     mvn clean package
 
