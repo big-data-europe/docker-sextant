@@ -10,6 +10,7 @@ RUN apt-get update && \
             	default-jdk \
 	    	maven \
     	    	mercurial \
+		curl \
 	    	wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
