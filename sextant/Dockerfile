@@ -2,9 +2,9 @@
 # Dockerfile for Sextant #
 # BigDataEurope          #
 #                        #
-# java 7		         #
+# java 7                 #
 # mercurial              #
-# git 1.9.1		         #
+# git 1.9.1              #
 # tomcat 7.0.55          #
 ##########################
 
