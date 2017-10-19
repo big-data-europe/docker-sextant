@@ -18,10 +18,10 @@ ENV TOMCAT_MINOR_VERSION 7.0.55
 RUN apt-get update \
  && apt-get install -y \
     default-jdk \
-	maven \
+    maven \
     mercurial \
-	wget \
-	vim \
+    wget \
+    vim \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -37,10 +37,10 @@ RUN hg clone http://hg.strabon.di.uoa.gr/Sextant-New -r bigDataOL3 \
  && mvn clean package
 
 RUN cp /Sextant-New/JerseyServer/target/*.war /tomcat/webapps/Sextant_v2.0.war \
- && rm -Rf /Sextant-New \
+ && rm -Rf /Sextant-New
 
 ADD sextant.sh /sextant.sh
-RUN chmod +x /*.sh
+RUN chmod +x /*.sh \
  && mkdir /inout
 
 EXPOSE $PORT
