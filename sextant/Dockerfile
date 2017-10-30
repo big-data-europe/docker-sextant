@@ -41,7 +41,7 @@ RUN cp /Sextant-New/JerseyServer/target/*.war /tomcat/webapps/Sextant_v2.0.war \
 
 ADD sextant.sh /sextant.sh
 RUN chmod +x /*.sh \
- && mkdir /inout
+ && mkdir /inout \
  && mkdir /tomcat/webapps/snap
 
 EXPOSE $PORT
